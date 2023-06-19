@@ -13,7 +13,7 @@ function HomePage() {
     <div className="homepage">
       <h1>Word Of the Day</h1>
       <div className="box">
-        <h1>React JS</h1>
+        <h1>Silicon</h1>
         <button onClick={handleAudio}><GiSpeaker /></button>
       </div>
     </div>
