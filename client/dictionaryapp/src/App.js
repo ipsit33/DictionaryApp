@@ -1,10 +1,14 @@
 import './App.css';
 import HomePage from './component/home';
+import { SearchProvider } from './searchContext';
+
 
 function App() {
   return (
     <div className="App">
-      <HomePage />
+      <SearchProvider>
+        <HomePage />
+      </SearchProvider>
     </div>
   );
 }
