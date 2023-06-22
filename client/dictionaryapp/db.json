@@ -1,0 +1,84 @@
+{
+  "users": [
+    {
+      "id": 1687318875540,
+      "email": "anwesh@gmail.com",
+      "password": "an12"
+    },
+    {
+      "id": 1687318916713,
+      "email": "anwesh@gmail.com",
+      "password": "78"
+    },
+    {
+      "id": 1687318937928,
+      "email": "anwesh@gmail.com",
+      "password": "90"
+    },
+    {
+      "id": 1687369543603,
+      "email": "ipsit@mail.com",
+      "password": "ip12"
+    },
+    {
+      "id": 1687371041620,
+      "email": "patrajagankumar2002@gmail.com",
+      "password": "12a"
+    },
+    {
+      "id": 1687371078857,
+      "email": "anwesh@gmail.com",
+      "password": "99"
+    },
+    {
+      "id": 1687371488592,
+      "email": "ece.20becd70@silicon.ac.in",
+      "password": "7"
+    },
+    {
+      "id": 1687372093118,
+      "email": "patrajagankumar2002@gmail.com",
+      "password": "00"
+    },
+    {
+      "id": 1687374820831,
+      "email": "jagan@mail.com",
+      "password": "jk89"
+    },
+    {
+      "id": 1687412093137,
+      "email": "jagankumar2024jobs@gmail.com",
+      "password": "24"
+    },
+    {
+      "id": 1687453383157,
+      "name": "jagan",
+      "email": "ece.20becd70@silicon.ac.in",
+      "password": "tu"
+    }
+  ],
+  "bookmarks": [
+    {
+      "word": "phone",
+      "def": [
+        "to make a telephone call to"
+      ],
+      "ants": [],
+      "userId": 1687374820831,
+      "id": 3
+    },
+    {
+      "word": "fan",
+      "def": [
+        "a person with a strong and habitual liking for something"
+      ],
+      "ants": [
+        [
+          "nonfan"
+        ]
+      ],
+      "userId": 1687318937928,
+      "id": 4
+    }
+  ]
+}

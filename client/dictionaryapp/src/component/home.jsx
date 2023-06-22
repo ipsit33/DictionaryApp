@@ -1,37 +1,149 @@
-import React, { useState, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import rj from "./song.mp3";
+import SearchContext from "../searchContext";
+import Navbar from "./navbar";
 import { GiSpeaker } from 'react-icons/gi';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FaLinkedin, FaTwitter, FaFacebook, FaInstagram } from 'react-icons/fa';
-
-
-// import pic from "./2.png";
+import {BsBookmarkHeartFill} from 'react-icons/bs';
+import Bookmarks from "./bookmark";
+import VolumeUpIcon from '@mui/icons-material/VolumeUp';
 
 function HomePage() {
+  const [bookmarks, setBookmarks] = useState([]);
+  const { search } = useContext(SearchContext);
+  const [arr, setArr] = useState([]);
+  const [wholearr, setWholeArr] = useState([]);
+  const token = JSON.parse(localStorage.getItem("token"));
+  const [wholearr1, setWholeArr1] = useState([]);
+  const [filteredArr1, setFilteredArr1] = useState([]);
 
-  // adding themes
-  // const [theme,setTheme]=useState("light");
-  // const [themeMode,setThemeMode]=useState("light");
+  // search hooks
+  const [searchHistory, setSearchHistory] = useState([]);
+
+  // search hooks implememntation
+  useEffect(() => {
+    const storedHistory = localStorage.getItem("searchHistory");
+    if (storedHistory) {
+      setSearchHistory(JSON.parse(storedHistory));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
+  }, [searchHistory]);
+
+  // handleClearHistory
+  const handleClearHistory = () => {
+    // Clear the search history
+    setSearchHistory([]);
+    
+    // Remove the search history from localStorage
+    localStorage.removeItem("searchHistory");
+    
+    // Send a request to your server to clear the search history associated with the user's token
+    fetch('http://localhost:8080/clear-search-history', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ userId: token })
+    })
+      .then(response => response.json())
+      .then(updatedSearchHistory => {
+        // Handle the response or perform any additional actions if needed
+      })
+      .catch(error => console.error(error));
+  };
+  
+
+  // api setting 
+  const getData = async () => {
+    await fetch(`https://www.dictionaryapi.com/api/v3/references/thesaurus/json/${search}?key=b454008b-2ee5-41e8-a29e-5efb9fd0df15`, {
+      method: "GET",
+    })
+      .then(res => res.json())
+      .then(data => {
+        setWholeArr(data);
+
+    }
+      ) 
+    };
+
+    // sound api
+    const getData1 = async () => {
+      await fetch(`https://api.dictionaryapi.dev/api/v2/entries/en/${search}`, {
+        method: "GET",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setWholeArr1(data);
+          if (Array.isArray(data)) {
+            const filteredArr1 = data.map((item) => {
+              const audio = item.phonetics.find((phonetic) => phonetic.audio);
+              return {
+                text: item.phonetics[0]?.text,
+                audio: audio ? audio.audio : null,
+              };
+            });
+            setFilteredArr1(filteredArr1);
+          } else {
+            setFilteredArr1([]);
+          }
+        });
+    };
+  
+
+  const handleButton = () => {
+    if(!token){
+      alert("Log in first to proceed !!");
+      window.location.reload();
+    }
+    else 
+    if (search !== "") {
+      getData();
+      // 
+      setSearchHistory((prevHistory) => [search, ...prevHistory]);
+    }
+  };
+
+  // bookamark
+  const handleBookmark = (word,def,syns,ants) => {
+    // setBookmarks((prevBookmarks) => [...prevBookmarks, word]);
+    fetch('http://localhost:8080/bookmarks', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ word,def,syns,ants,userId:token})
+    })
+      .then(response => response.json())
+      .then(updatedBookmarks => setBookmarks(updatedBookmarks))
+     
+      .catch(error => console.error(error));
+      alert("Word added to bookmark section");
+  };
+  
+
+  useEffect(() => {
+    if (search === "") {
+      setArr([]);
+    } else {
+      const filteredArr = wholearr.filter(
+        (item) =>
+          item.meta &&
+          item.meta.id &&
+          item.meta.id.toLowerCase().includes(search.toLowerCase())
+      );
+      setArr(filteredArr);
+      getData1();
+    }
+  }, [search, wholearr]);
+  
 
   const audio = new Audio(rj);
   const [currentDate, setCurrentDate] = useState("");
-
-  // css for themes
-  // const lightTheme={
-  //   backgroundColor: "#ffffff",
-  //   color: "#000000",
-  // };
-  // const darkTheme={
-  //   backgroundColor: "#000000",
-  //   color: "#ffffff",
-  // };
-  // function call for theme
-  // const handleThemeMode=()=>{
-  //   const newThemeMode=themeMode==="light"?"dark":"light";
-  //   setThemeMode(newThemeMode);
-  //   setTheme(newThemeMode);
-  // }
   
   useEffect(() => {
     const interval = setInterval(() => {
@@ -127,23 +239,94 @@ function HomePage() {
   // };
 
   return (
+    <div className={"homepage "}>
+    
+    {/* search history */}
+    <div>
+          <h2>Search History:</h2>
+          {searchHistory.map((word, index) => (
+              <p key={index}>{word}</p>
+          ))}
+    </div>
 
-    // ={`homepage ${themeMode}`} style={theme === "light" ? lightTheme : darkTheme}
-    <div className="homepage">
+    {/* Clear search history */}
+    <button onClick={handleClearHistory}>Clear Search History</button>
+
+    
+
+
+    {/* bookmar button */}
+    {/* <button>My Bookmarks</button> */}
       {/* searchar bar */}
+      <Navbar performSearch={handleButton} />
+      {arr.length > 0 ? (
       <div>
-          <h3 align="center">Search your word</h3>
-          <div> 
-              <input type="text" />
-              <FontAwesomeIcon icon={faSearch} />
+        {arr[0] && (
+          <div key={arr[0]?.meta?.id}>
+          
+            {arr[0]?.meta?.id && <h2>{arr[0].meta.id}</h2>}
+            {arr[0]?.shortdef && (
+              <div>
+                <h3>Definitions:</h3>
+                {arr[0].shortdef.map((def, index) => (
+                  <p key={index}>{def}</p>
+                ))}
+              </div>
+            )}
+            {arr[0]?.meta?.syns && arr[0].meta.syns[1] && (
+              <h3>Synonym: {arr[0].meta.syns[1].join(", ")}</h3>
+            )}
+            {arr[0]?.meta?.ants && (
+            <div>
+                <h3>Antonyms:</h3>
+                <p>
+                  {arr[0].meta.ants.slice(0, 10).map((antonym, index) => antonym.join(", ")).join(", ")}
+                </p>
+            </div>
+            
+            )}
+            <button onClick={() => handleBookmark(arr[0].meta.id,arr[0].shortdef,arr[0].meta.syns[1],arr[0]?.meta?.ants)}><BsBookmarkHeartFill/>Bookmark</button>
           </div>
+        )}
+        {filteredArr1.length > 0 && (
+          <div>
+            <h3>Pronunciation:</h3>
+            <p>{filteredArr1[0]?.text}</p>
+            {filteredArr1[0]?.audio && (
+              <div>
+                <VolumeUpIcon
+                  onClick={() => {
+                    const audioElement = new Audio(filteredArr1[0].audio);
+                    audioElement.play();
+                  }}
+                />
+              </div>
+            )}
+          </div>
+        )}
+
       </div>
+      
+    ) : search !== "" ? (
+      <h1>Loading...</h1>
+    ) : null}
+
+      {/* Display bookmarks */}
+      <div>
+      {/* <h2>Bookmarks:</h2> */}
+      {/* {bookmarks.map((bookmark, index) => (
+        <p key={index}>{bookmark}</p>
+      ))} */}
+      
+    </div>
+
+  
 
       {/* <img src={pic} alt="" /> */}
       <h1>Word Of the Day</h1>
       <div className="box">
-        <h5>Silicon</h5>
-        <pre>[Beyond Everything] <button onClick={handleAudio}><GiSpeaker /></button></pre>
+        <h5>React Js</h5>
+        <pre>[Trending Technology] <button onClick={handleAudio}><GiSpeaker /></button></pre>
         <div>
           <a href="https://silicon.ac.in/" target="_blank" rel="noopener noreferrer">Meaning & Examples</a>
           <p>{currentDate.toUpperCase()}</p>
@@ -244,3 +427,13 @@ function HomePage() {
 }
 
 export default HomePage;
+
+
+
+
+
+
+
+
+
+
