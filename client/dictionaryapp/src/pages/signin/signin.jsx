@@ -50,7 +50,7 @@ const Login = () => {
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 " style={{ paddingTop: '45px' }}>
             <form onSubmit={handleSubmit}>
               <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+                <p className="lead fw-normal mb-0 me-3">SignIn</p>
                 <button type="button" className="btn btn-primary btn-floating mx-1">
                   <i className="faFacebookF"><FontAwesomeIcon icon={faFacebookF}/></i>
                 </button>
@@ -139,3 +139,7 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+

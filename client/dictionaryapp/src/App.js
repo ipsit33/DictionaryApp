@@ -11,7 +11,10 @@ import AllRoutes from './AllRouter';
 function App(){
   return(
     <div>
+   
     <AllRoutes />
+  
+    
     
        {/* <HomePage/> */}
       {/* <Bookmarks/> */}
