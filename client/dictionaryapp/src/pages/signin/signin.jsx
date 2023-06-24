@@ -24,7 +24,7 @@ const Login = () => {
           // Save the token to local storage
           localStorage.setItem('token', JSON.stringify(user.id));
           alert('You are logged in!');
-          navigate('/');
+          navigate('/loader');
         } else {
           alert('Invalid credentials! ');
         }

@@ -68,284 +68,9 @@
       "email": "sarun@gmail.com",
       "password": "sa12"
     }
+    
   ],
   "bookmarks": [
-    {
-      "word": "good",
-      "def": [
-        "based on sound reasoning or information",
-        "conforming to a high standard of morality or virtue",
-        "according to the rules of logic"
-      ],
-      "syns": [
-        "all right",
-        "decent",
-        "ethical",
-        "honest",
-        "honorable",
-        "just",
-        "moral",
-        "nice",
-        "right",
-        "righteous",
-        "right-minded",
-        "straight",
-        "true",
-        "upright",
-        "virtuous"
-      ],
-      "ants": [
-        [
-          "groundless",
-          "illogical",
-          "invalid",
-          "irrational",
-          "nonrational",
-          "nonsensical",
-          "nonvalid",
-          "unfounded",
-          "uninformed",
-          "unjustified",
-          "unreasonable",
-          "unreasoned",
-          "unsound"
-        ],
-        [
-          "bad",
-          "dishonest",
-          "dishonorable",
-          "evil",
-          "evil-minded",
-          "immoral",
-          "indecent",
-          "sinful",
-          "unethical",
-          "unrighteous",
-          "wicked",
-          "wrong"
-        ],
-        [
-          "illegitimate",
-          "illogical",
-          "incoherent",
-          "inconsequent",
-          "inconsequential",
-          "invalid",
-          "irrational",
-          "unreasonable",
-          "unsound",
-          "weak"
-        ],
-        [
-          "disagreeable",
-          "unsatisfactory"
-        ],
-        [
-          "adverse",
-          "depreciative",
-          "depreciatory",
-          "derogatory",
-          "disapproving",
-          "inappreciative",
-          "negative",
-          "unappreciative",
-          "uncomplimentary",
-          "unfavorable",
-          "unflattering",
-          "unfriendly"
-        ],
-        [
-          "disloyal",
-          "faithless",
-          "false",
-          "fickle",
-          "inconstant",
-          "perfidious",
-          "recreant",
-          "traitorous",
-          "treacherous",
-          "unfaithful",
-          "untrue"
-        ],
-        [
-          "disagreeable",
-          "pleasureless",
-          "unpalatable",
-          "unpleasant",
-          "unwelcome"
-        ],
-        [
-          "amateur",
-          "amateurish",
-          "inexperienced",
-          "inexpert",
-          "jackleg",
-          "unprofessional",
-          "unseasoned",
-          "unskilled",
-          "unskillful"
-        ],
-        [
-          "no-good",
-          "undeserving",
-          "valueless",
-          "worthless"
-        ],
-        [
-          "incompetent",
-          "inept",
-          "poor",
-          "unfit",
-          "unfitted",
-          "unqualified"
-        ],
-        [
-          "improper",
-          "inapplicable",
-          "inapposite",
-          "inappropriate",
-          "inapt",
-          "incongruous",
-          "indecent",
-          "infelicitous",
-          "malapropos",
-          "misbecoming",
-          "unapt",
-          "unbecoming",
-          "unbeseeming",
-          "unfit",
-          "unfitting",
-          "unhappy",
-          "unmeet",
-          "unseemly",
-          "unsuitable",
-          "wrong"
-        ],
-        [
-          "inconsequential",
-          "inconsiderable",
-          "insignificant",
-          "insubstantial",
-          "negligible",
-          "nominal"
-        ],
-        [
-          "dodgy",
-          "uncertain",
-          "undependable",
-          "unreliable",
-          "unsafe",
-          "untrustworthy"
-        ],
-        [
-          "false",
-          "improper",
-          "inaccurate",
-          "incorrect",
-          "inexact",
-          "off",
-          "untrue",
-          "wrong"
-        ],
-        [
-          "grotesque",
-          "hideous",
-          "homely",
-          "ill-favored",
-          "plain",
-          "ugly",
-          "unaesthetic",
-          "unattractive",
-          "unbeautiful",
-          "uncomely",
-          "uncute",
-          "unhandsome",
-          "unlovely",
-          "unpleasing",
-          "unpretty",
-          "unsightly"
-        ],
-        [
-          "insalubrious",
-          "noxious",
-          "unhealthful",
-          "unhealthy",
-          "unwholesome"
-        ],
-        [
-          "self-centered",
-          "self-concerned",
-          "selfish"
-        ],
-        [
-          "deficient",
-          "inadequate",
-          "insufficient",
-          "lacking",
-          "unacceptable",
-          "unsatisfactory",
-          "wanting"
-        ],
-        [
-          "bad",
-          "disadvantageous",
-          "unfavorable",
-          "unfriendly",
-          "unhelpful",
-          "unprofitable"
-        ]
-      ],
-      "userId": 1687318916713,
-      "id": 5
-    },
-    {
-      "word": "hello",
-      "def": [
-        "an expression of goodwill upon meeting"
-      ],
-      "ants": [
-        [
-          "adieu",
-          "bon voyage",
-          "congé",
-          "farewell",
-          "Godspeed",
-          "good-bye"
-        ]
-      ],
-      "userId": 1687318916713,
-      "id": 6
-    },
-    {
-      "word": "god",
-      "def": [
-        "a being having superhuman powers and control over a particular part of life or the world",
-        "the being worshipped as the creator and ruler of the universe",
-        "a person who is the object of extreme or uncritical devotion"
-      ],
-      "syns": [
-        "Allah",
-        "Almighty",
-        "Author",
-        "Creator",
-        "deity",
-        "Divinity",
-        "Eternal",
-        "Everlasting",
-        "Father",
-        "Godhead",
-        "Jehovah",
-        "King",
-        "Lord",
-        "Maker",
-        "Providence",
-        "Supreme Being",
-        "Yahweh"
-      ],
-      "ants": [],
-      "userId": 1687318916713,
-      "id": 7
-    },
     {
       "word": "phone",
       "def": [
@@ -387,6 +112,112 @@
       ],
       "userId": 1687524476290,
       "id": 11
+    },
+    {
+      "word": "sweet",
+      "def": [
+        "granted special treatment or attention",
+        "having a pleasant smell",
+        "having an easygoing and pleasing manner especially in social situations"
+      ],
+      "syns": [
+        "ambrosial",
+        "aromatic",
+        "fragrant",
+        "perfumed",
+        "redolent",
+        "savory",
+        "scented"
+      ],
+      "ants": [
+        [
+          "unbeloved"
+        ],
+        [
+          "fetid",
+          "foul",
+          "malodorous",
+          "noisome",
+          "putrid",
+          "rancid",
+          "rank",
+          "reeking",
+          "reeky",
+          "skunky",
+          "smelly",
+          "stenchful",
+          "stenchy",
+          "stinking",
+          "stinky",
+          "strong"
+        ],
+        [
+          "disagreeable",
+          "ill-natured",
+          "ill-tempered",
+          "unamiable",
+          "ungenial",
+          "ungracious",
+          "unpleasant"
+        ],
+        [
+          "abhorrent",
+          "abominable",
+          "detestable",
+          "hateful",
+          "loathsome",
+          "odious",
+          "unlovable"
+        ],
+        [
+          "disagreeable",
+          "pleasureless",
+          "unpalatable",
+          "unpleasant",
+          "unwelcome"
+        ]
+      ],
+      "userId": 1687318916713,
+      "id": 12
+    },
+    {
+      "word": "hunger",
+      "def": [
+        "a need or desire for food",
+        "a strong wish for something",
+        "urgent desire or interest"
+      ],
+      "syns": [
+        "appetency",
+        "appetite",
+        "craving",
+        "desire",
+        "drive",
+        "hankering",
+        "itch",
+        "jones",
+        "letch",
+        "longing",
+        "lust",
+        "passion",
+        "pining",
+        "thirst",
+        "thirstiness",
+        "urge",
+        "yearning",
+        "yen"
+      ],
+      "ants": [
+        [
+          "inappetence"
+        ],
+        [
+          "apathy",
+          "indifference"
+        ]
+      ],
+      "userId": 1687318916713,
+      "id": 13
     }
   ]
 }
