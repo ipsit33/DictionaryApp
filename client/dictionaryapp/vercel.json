@@ -3,6 +3,7 @@
   "outputDirectory": "build",
    "routes": [
     {
+      "src": "string",
       "status": 308,
       "headers": { "Location": "https://vast-pink-drill-coat.cyclic.app" }
     }
