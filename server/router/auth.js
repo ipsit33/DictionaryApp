@@ -12,34 +12,7 @@ router.get('/',(req,res) =>{
 });
 
 
-//using promises
-// router.post('/register',(req,res) => {
-
-//     const {name, email, pass} = req.body;
-
-//     if(!name || !email || !pass){
-//         return res.status(422).json({error: "Please fill the fields properly"});
-//     }
-
-//     User.findOne({email: email}).
-//     then((userExist) => {
-//         if(userExist){
-//             return res.status(422).json({error: "User already exists"});
-//         }
-
-//         const user = new User({name, email, pass});
-//         user.save().then(() =>{
-//             res.status(201).json({message: "User registered successfully"});
-//         }).catch(err => res.status(500).json({error: "Failed to registered"}));
-//     }).catch((err) => {console.log(err);});
-
-
-//     // console.log(name);  //gets all the data that user posts
-//     // res.json({message: req.body});
-// });
-
-
-// Async-Await conversion for registration
+// registration
 router.post('/register', async (req,res) => {
 
     const {name, email, password} = req.body;
