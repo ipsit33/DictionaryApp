@@ -1,0 +1,223 @@
+{
+  "users": [
+    {
+      "id": 1687318875540,
+      "email": "anwesh@gmail.com",
+      "password": "an12"
+    },
+    {
+      "id": 1687318916713,
+      "email": "anwesh@gmail.com",
+      "password": "78"
+    },
+    {
+      "id": 1687318937928,
+      "email": "anwesh@gmail.com",
+      "password": "90"
+    },
+    {
+      "id": 1687369543603,
+      "email": "ipsit@mail.com",
+      "password": "ip12"
+    },
+    {
+      "id": 1687371041620,
+      "email": "patrajagankumar2002@gmail.com",
+      "password": "12a"
+    },
+    {
+      "id": 1687371078857,
+      "email": "anwesh@gmail.com",
+      "password": "99"
+    },
+    {
+      "id": 1687371488592,
+      "email": "ece.20becd70@silicon.ac.in",
+      "password": "7"
+    },
+    {
+      "id": 1687372093118,
+      "email": "patrajagankumar2002@gmail.com",
+      "password": "00"
+    },
+    {
+      "id": 1687374820831,
+      "email": "jagan@mail.com",
+      "password": "jk89"
+    },
+    {
+      "id": 1687412093137,
+      "email": "jagankumar2024jobs@gmail.com",
+      "password": "24"
+    },
+    {
+      "id": 1687453383157,
+      "name": "jagan",
+      "email": "ece.20becd70@silicon.ac.in",
+      "password": "tu"
+    },
+    {
+      "id": 1687523321544,
+      "name": "Prayas",
+      "email": "prayas@gmail.com",
+      "password": "ps"
+    },
+    {
+      "id": 1687524476290,
+      "name": "Sarun Sir",
+      "email": "sarun@gmail.com",
+      "password": "sa12"
+    }
+    
+  ],
+  "bookmarks": [
+    {
+      "word": "phone",
+      "def": [
+        "to make a telephone call to"
+      ],
+      "ants": [],
+      "userId": 1687523321544,
+      "id": 10
+    },
+    {
+      "word": "sleep",
+      "def": [
+        "a natural periodic loss of consciousness during which the body restores itself",
+        "the state of being dead",
+        "the permanent stopping of all the vital bodily activities"
+      ],
+      "syns": [
+        "dead",
+        "deadness",
+        "death",
+        "grave",
+        "lifelessness",
+        "nothingness"
+      ],
+      "ants": [
+        [
+          "consciousness",
+          "wake",
+          "wakefulness"
+        ],
+        [
+          "existence",
+          "life"
+        ],
+        [
+          "birth",
+          "nativity"
+        ]
+      ],
+      "userId": 1687524476290,
+      "id": 11
+    },
+    {
+      "word": "sweet",
+      "def": [
+        "granted special treatment or attention",
+        "having a pleasant smell",
+        "having an easygoing and pleasing manner especially in social situations"
+      ],
+      "syns": [
+        "ambrosial",
+        "aromatic",
+        "fragrant",
+        "perfumed",
+        "redolent",
+        "savory",
+        "scented"
+      ],
+      "ants": [
+        [
+          "unbeloved"
+        ],
+        [
+          "fetid",
+          "foul",
+          "malodorous",
+          "noisome",
+          "putrid",
+          "rancid",
+          "rank",
+          "reeking",
+          "reeky",
+          "skunky",
+          "smelly",
+          "stenchful",
+          "stenchy",
+          "stinking",
+          "stinky",
+          "strong"
+        ],
+        [
+          "disagreeable",
+          "ill-natured",
+          "ill-tempered",
+          "unamiable",
+          "ungenial",
+          "ungracious",
+          "unpleasant"
+        ],
+        [
+          "abhorrent",
+          "abominable",
+          "detestable",
+          "hateful",
+          "loathsome",
+          "odious",
+          "unlovable"
+        ],
+        [
+          "disagreeable",
+          "pleasureless",
+          "unpalatable",
+          "unpleasant",
+          "unwelcome"
+        ]
+      ],
+      "userId": 1687318916713,
+      "id": 12
+    },
+    {
+      "word": "hunger",
+      "def": [
+        "a need or desire for food",
+        "a strong wish for something",
+        "urgent desire or interest"
+      ],
+      "syns": [
+        "appetency",
+        "appetite",
+        "craving",
+        "desire",
+        "drive",
+        "hankering",
+        "itch",
+        "jones",
+        "letch",
+        "longing",
+        "lust",
+        "passion",
+        "pining",
+        "thirst",
+        "thirstiness",
+        "urge",
+        "yearning",
+        "yen"
+      ],
+      "ants": [
+        [
+          "inappetence"
+        ],
+        [
+          "apathy",
+          "indifference"
+        ]
+      ],
+      "userId": 1687318916713,
+      "id": 13
+    }
+  ]
+}

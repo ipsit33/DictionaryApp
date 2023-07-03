@@ -1,10 +1,12 @@
-import './App.css';
-import HomePage from './component/home';
+import React from 'react';
+import AllRoutes from './AllRouter';
 
-function App() {
-  return (
-    <div className="App">
-      <HomePage />
+
+function App(){
+  return(
+    <div>
+   
+    <AllRoutes />
     </div>
   );
 }
