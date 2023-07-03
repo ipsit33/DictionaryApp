@@ -61,8 +61,10 @@ function HomePage() {
 
   const handleButton = () => {
     if (!token) {
-      alert("Log in first to proceed !!");
-      window.location.reload();
+      toast.error("Log in first to proceed !!");
+      setTimeout(() => {
+        window.location.reload();
+      },1000);
     } else if (search !== "") {
       getData();
       //
