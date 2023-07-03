@@ -31,7 +31,8 @@ Pages
 <img width="960" alt="image" src="https://github.com/ipsit33/DictionaryApp/assets/94950001/44576c8c-5e41-4587-87da-d54c1175a2c1">
 <img width="959" alt="image" src="https://github.com/ipsit33/DictionaryApp/assets/94950001/3ada4360-80a2-4e62-8d01-da1063d100b4">
 <img width="956" alt="image" src="https://github.com/ipsit33/DictionaryApp/assets/94950001/fa52fe9f-99df-4265-a115-772b9068382b">
-![image](https://github.com/ipsit33/DictionaryApp/assets/85749577/05ffb269-4678-4481-b01a-183780e38190)
+![image](https://github.com/ipsit33/DictionaryApp/assets/85749577/ef22e1e7-afce-467e-809f-239d0d676bd4)
+
 
 
 4. Search Implementation
