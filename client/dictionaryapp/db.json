@@ -55,7 +55,20 @@
       "name": "jagan",
       "email": "ece.20becd70@silicon.ac.in",
       "password": "tu"
+    },
+    {
+      "id": 1687523321544,
+      "name": "Prayas",
+      "email": "prayas@gmail.com",
+      "password": "ps"
+    },
+    {
+      "id": 1687524476290,
+      "name": "Sarun Sir",
+      "email": "sarun@gmail.com",
+      "password": "sa12"
     }
+    
   ],
   "bookmarks": [
     {
@@ -64,21 +77,147 @@
         "to make a telephone call to"
       ],
       "ants": [],
-      "userId": 1687374820831,
-      "id": 3
+      "userId": 1687523321544,
+      "id": 10
     },
     {
-      "word": "fan",
+      "word": "sleep",
       "def": [
-        "a person with a strong and habitual liking for something"
+        "a natural periodic loss of consciousness during which the body restores itself",
+        "the state of being dead",
+        "the permanent stopping of all the vital bodily activities"
+      ],
+      "syns": [
+        "dead",
+        "deadness",
+        "death",
+        "grave",
+        "lifelessness",
+        "nothingness"
       ],
       "ants": [
         [
-          "nonfan"
+          "consciousness",
+          "wake",
+          "wakefulness"
+        ],
+        [
+          "existence",
+          "life"
+        ],
+        [
+          "birth",
+          "nativity"
         ]
       ],
-      "userId": 1687318937928,
-      "id": 4
+      "userId": 1687524476290,
+      "id": 11
+    },
+    {
+      "word": "sweet",
+      "def": [
+        "granted special treatment or attention",
+        "having a pleasant smell",
+        "having an easygoing and pleasing manner especially in social situations"
+      ],
+      "syns": [
+        "ambrosial",
+        "aromatic",
+        "fragrant",
+        "perfumed",
+        "redolent",
+        "savory",
+        "scented"
+      ],
+      "ants": [
+        [
+          "unbeloved"
+        ],
+        [
+          "fetid",
+          "foul",
+          "malodorous",
+          "noisome",
+          "putrid",
+          "rancid",
+          "rank",
+          "reeking",
+          "reeky",
+          "skunky",
+          "smelly",
+          "stenchful",
+          "stenchy",
+          "stinking",
+          "stinky",
+          "strong"
+        ],
+        [
+          "disagreeable",
+          "ill-natured",
+          "ill-tempered",
+          "unamiable",
+          "ungenial",
+          "ungracious",
+          "unpleasant"
+        ],
+        [
+          "abhorrent",
+          "abominable",
+          "detestable",
+          "hateful",
+          "loathsome",
+          "odious",
+          "unlovable"
+        ],
+        [
+          "disagreeable",
+          "pleasureless",
+          "unpalatable",
+          "unpleasant",
+          "unwelcome"
+        ]
+      ],
+      "userId": 1687318916713,
+      "id": 12
+    },
+    {
+      "word": "hunger",
+      "def": [
+        "a need or desire for food",
+        "a strong wish for something",
+        "urgent desire or interest"
+      ],
+      "syns": [
+        "appetency",
+        "appetite",
+        "craving",
+        "desire",
+        "drive",
+        "hankering",
+        "itch",
+        "jones",
+        "letch",
+        "longing",
+        "lust",
+        "passion",
+        "pining",
+        "thirst",
+        "thirstiness",
+        "urge",
+        "yearning",
+        "yen"
+      ],
+      "ants": [
+        [
+          "inappetence"
+        ],
+        [
+          "apathy",
+          "indifference"
+        ]
+      ],
+      "userId": 1687318916713,
+      "id": 13
     }
   ]
 }

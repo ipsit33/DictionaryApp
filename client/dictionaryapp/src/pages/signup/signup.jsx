@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import toast, {Toaster} from 'react-hot-toast';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -7,33 +8,61 @@ const Signup = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const submitData = () => {
-    if (email !== '' && password !== '') {
+  const submitData = async() => {
+    if (name !== '' && email !== '' && password !== '') {
       const obj = {
-        id: Date.now(),
         name: name,
         email: email,
         password: password,
       };
 
-      fetch('http://localhost:8080/users', {
+      const res = await fetch('/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify(obj),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log(data);
-          alert('Account created successfully! You can now proceed to login.');
-          navigate('/');
-        })
-        .catch((err) => console.log(err));
+      });
+
+      const data = await res.json();
+      if(data.status === 422 || !data){
+        toast.error('Invalid Registration');
+      }
+      else{
+          toast.success('Account created successfully');
+          setTimeout( () =>{
+            navigate('/');
+          },1000);
+      }
+
     } else {
-      alert('Fill in all the fields');
+      toast.error('Fill in all the fields', {
+        icon: '😱'
+      });
     }
   };
+
+  
+  // Post data through MONGODB
+  // const PostData = async (e) => {
+  //   e.preventDefault();
+    
+  //   const {name,email,pass} = user;
+  //   const req = await fetch("/register",{
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json"
+  //     },
+  //     body: JSON.stringify(user)
+  //   });
+    
+  //   const res = await req.json();
+  //   if(res.status === 422 || !res){
+  //     alert('Invalid Registration');
+  //   }else{
+  //     alert("Registration Success");
+  //   }
+  // }
 
   return (
     <section
@@ -99,6 +128,7 @@ const Signup = () => {
                     <button type="button" className="btn btn-primary btn-lg" onClick={submitData}>
                       Register
                     </button>
+                    <Toaster />
                   </div>
                 </form>
               </div>
@@ -106,9 +136,9 @@ const Signup = () => {
           </div>
           <div className="col-md-6 d-flex align-items-center justify-content-center">
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
+              src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-83.jpg?w=740&t=st=1688373447~exp=1688374047~hmac=786b084bba576f980a7074e6bec8ff57c9a80a3b60e9e8aa1406080e61f13819"
               className="img-fluid"
-              alt="Sample image"
+              alt="error"
             />
           </div>
         </div>
@@ -118,3 +148,92 @@ const Signup = () => {
 };
 
 export default Signup;
+
+
+// Subarna Code
+// import React, { useState } from "react";
+
+
+// const Register = () => {
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
+//   const [email, setEmail] = useState("");
+
+
+//   const handleRegister = async (e) => {
+//     e.preventDefault();
+
+//     // Send registration request to the server
+//     const response = await fetch("http://localhost:5001/register", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ username, password, email }),
+//     });
+
+//     // const data = await response.json();
+
+//     if (response.ok) {
+//       // Registration success
+ 
+//       setUsername("");
+//       setPassword("");
+//       setEmail("");
+//       // Show an alert
+//       alert("Registration successful");
+//     } else {
+//       // Registration failed
+//       alert("Invalid credentials");
+//     }
+//   };
+
+//   return (
+ 
+//           <>
+//             <div className="login-container animated fadeInDown bootstrap snippets bootdeys">
+//               <div className="loginbox border">
+//                 <div className="loginbox-title">REGISTER</div> <hr />
+//                 <div className="loginbox-textbox">
+//                   <input
+//                     type="text"
+//                     className="form-control"
+//                     placeholder="Name"
+//                     value={username}
+//                     onChange={(e) => setUsername(e.target.value)}
+//                   />
+//                 </div>
+//                 <div className="loginbox-textbox">
+//                   <input
+//                     type="text"
+//                     className="form-control"
+//                     placeholder="Email"
+//                     value={email}
+//                     onChange={(e) => setEmail(e.target.value)}
+//                   />
+//                 </div>
+//                 <div className="loginbox-textbox">
+//                   <input
+//                     type="text"
+//                     className="form-control"
+//                     placeholder="Password"
+//                     value={password}
+//                     onChange={(e) => setPassword(e.target.value)}
+//                   />
+//                 </div>
+//                 <div className="loginbox-forgot">
+//                   <a href="">Forgot Password?</a>
+//                 </div>
+//                 <div className="loginbox-submit">
+//                   <button className="btn btn-info" onClick={handleRegister}>Register</button>
+//                 </div>
+//                 <div className="loginbox-signup">
+//                   <a href="#register.html">Login</a>
+//                 </div>
+//               </div>
+//             </div>
+//           </>
+//         );
+//       };
+
+// export default Register;

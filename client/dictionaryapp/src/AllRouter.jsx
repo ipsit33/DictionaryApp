@@ -8,6 +8,7 @@ import Loader from "./component/loader";
 
 
 
+
 function AllRoutes(){
     return(
         <Routes>

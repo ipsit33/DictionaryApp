@@ -69,6 +69,7 @@ import SearchContext from "../../searchContext";
 import { AcmeLogo } from "./AcmeLogo";
 import { Link } from "react-router-dom";
 import { SearchIcon } from "./SearchIcon";
+import toast , {Toaster} from 'react-hot-toast';
 import "./navbar.css";
 
 function CustomNavbar({ performSearch }) {
@@ -78,57 +79,98 @@ function CustomNavbar({ performSearch }) {
   const [loggedIn, setLoggedIn] = useState(false);
   
 
-  useEffect(() => {
-    const fetchEmail = async () => {
-      try {
-        const response = await fetch("http://localhost:8080/users", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-        if (response.ok) {
-          const userData = await response.json();
-          const user = userData.find((item) => item.id === token);
-          if (user) {
-            setEmail(user.email);
-          } else {
-            console.log("User not found");
-          }
-        } else {
-          console.log("Failed to fetch user data");
+  // useEffect(() => {
+  //   const fetchEmail = async () => {
+  //     try {
+  //       const response = await fetch("http://localhost:8080/users", {
+  //         headers: {
+  //           Authorization: `Bearer ${token}`,
+  //         },
+  //       });
+  //       if (response.ok) {
+  //         const userData = await response.json();
+  //         const user = userData.find((item) => item.id === token);
+  //         if (user) {
+  //           setEmail(user.email);
+  //         } else {
+  //           console.log("User not found");
+  //         }
+  //       } else {
+  //         console.log("Failed to fetch user data");
+  //       }
+  //     } catch (error) {
+  //       console.log("Error:", error);
+  //     }
+  //   };
+  //   if (token) {
+  //     fetchEmail();
+  //     setLoggedIn(true);
+  //   }
+  // }, [token]);
+  
+  
+  const fetchEmail = async() => {
+    try{
+
+      const res = await fetch('/nav',{
+        method: 'GET',
+        headers: {
+          "Content-Type": "application/json"
         }
-      } catch (error) {
-        console.log("Error:", error);
+      });
+
+      const data = await res.json();
+      setEmail(data.email);
+
+      if(!res.status === 200){
+        const error = new Error(res.error);
+        throw error;
       }
-    };
-    if (token) {
+    } catch (err) {
+      console.log(err); 
+    }
+  };
+
+  
+  useEffect(() => {
+    if(token){
       fetchEmail();
       setLoggedIn(true);
     }
   }, [token]);
   
-  
-  
-  // useEffect(() => {
-  //   console.log("Email:", email);
-  // }, [email]);
-  
 
-
+console.log(token);
 
   const handleChange = (e) => {
     updateSearch(e.target.value);
   };
 
   const handleLogout = () => {
-    // Perform logout logic here (clear token, etc.)
-    alert("Logged out successfully");
+    // Perform logout logic here (clear token, and cookie etc.)
+    toast.success("Logged out successfully");
+    fetch('/logout',{
+      method: "GET",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json"
+      },
+      credentials: "include"
+    }).
+    then((res) => {
     localStorage.removeItem("token");
     setLoggedIn(false);
 
     // After logout, navigate to login page or desired page
     // navigate('/');
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    },1000);
+    if(res.status != 200){
+      const error = new Error(res.error);
+      throw error;
+    }
+    });
   };
 
   return (
@@ -246,6 +288,7 @@ function CustomNavbar({ performSearch }) {
             )}
           </Dropdown.Menu>
         </Dropdown>
+        <Toaster />
       </Navbar.Content>
     </Navbar>
   );

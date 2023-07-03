@@ -1,19 +1,23 @@
 import React from 'react';
-import './App.css';
-import Login from './pages/signin/signin';
-import Signup from './pages/signup/signup'
-import HomePage from './component/home'
-import { SearchProvider } from './searchContext';
-import Bookmarks from './component/bookmark';
 import AllRoutes from './AllRouter';
-import Loader from './component/loader';
+import Register from './pages/signup/signup';
+import Login from './pages/signin/signin';
 
 
 function App(){
   return(
     <div>
+   
     <AllRoutes />
-    {/* <Loader /> */}
+    
+    {/* <Register /> */}
+    {/* <Login /> */}
+    
+    
+       {/* <HomePage/> */}
+      {/* <Bookmarks/> */}
+      {/* <Login/>  */}
+      {/* <Signup/> */}
     </div>
   );
 }

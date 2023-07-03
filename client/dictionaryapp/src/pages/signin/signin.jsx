@@ -2,38 +2,62 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTwitter, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { red } from '@mui/material/colors';
+import toast , {Toaster} from 'react-hot-toast';
 
 const Login = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [message, setMessage] = useState('');
+
 
   const handleSignup = () => {
     navigate('/signup');
 };
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     // Fetch the data from http://localhost:8080/users using GET method
-    fetch('http://localhost:8080/users')
-      .then((response) => response.json())
-      .then((data) => {
-        const user = data.find((user) => user.email === email && user.password === password);
-        if (user) {
-          // Save the token to local storage
-          localStorage.setItem('token', JSON.stringify(user.id));
-          alert('You are logged in!');
-          navigate('/loader');
-        } else {
-          alert('Invalid credentials! ');
-        }
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-        setMessage('An error occurred. Please try again.');
+    // fetch('/login')
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     const user = data.find((user) => user.email === email && user.password === password);
+    //     if (user) {
+    //       // Save the token to local storage
+    //       localStorage.setItem('token', JSON.stringify(user.id));
+    //       alert('You are logged in!');
+    //       navigate('/loader');
+    //     } else {
+    //       alert('Invalid credentials! ');
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.error('Error:', error);
+    //     alert('An error occurred. Please try again.');
+    //   });
+
+    const res = await fetch('/login',{
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          email, password
+        })
       });
+
+    const data = await res.json();
+      if (res.ok) {
+      toast.success("Login Success!!",{
+        icon: '😎'
+      });
+      localStorage.setItem("token", JSON.stringify(data.token));
+      setTimeout(() => {
+        navigate("/loader");
+      },1000);
+    } else {
+      toast.error("Login Failed");
+    }    
   };
+
 
   return (
     <section className="vh-100">
@@ -41,16 +65,16 @@ const Login = () => {
         <div className="row d-flex justify-content-center align-items-center h-100">
           <div className="col-md-9 col-lg-6 col-xl-5">
             <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
+              src="https://img.freepik.com/free-vector/computer-login-concept-illustration_114360-7962.jpg?w=740&t=st=1688373892~exp=1688374492~hmac=500432d90645362c38f5d0b80217786042288f326b9a917dda46ecf9eb4a638b"
              className="img-fluid rounded"
-              alt="Sample image"
+              alt="error"
               // style={{ height: '550px' }}
             />
           </div>
           <div className="col-md-8 col-lg-6 col-xl-4 offset-xl-1 " style={{ paddingTop: '45px' }}>
             <form onSubmit={handleSubmit}>
               <div className="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-                <p className="lead fw-normal mb-0 me-3">Sign in with</p>
+                <p className="lead fw-normal mb-0 me-3">SignIn</p>
                 <button type="button" className="btn btn-primary btn-floating mx-1">
                   <i className="faFacebookF"><FontAwesomeIcon icon={faFacebookF}/></i>
                 </button>
@@ -69,9 +93,9 @@ const Login = () => {
               </div>
 
               <div className="form-outline mb-4">
-              <label className="form-label" htmlFor="email">
+              {/* <label className="form-label" htmlFor="email">
                   Email address
-                </label>
+                </label> */}
                 <input
                   type="email"
                   id="email"
@@ -85,9 +109,9 @@ const Login = () => {
               </div>
 
               <div className="form-outline mb-3">
-              <label className="form-label" htmlFor="password">
+              {/* <label className="form-label" htmlFor="password">
                   Password
-                </label>
+                </label> */}
                 <input
                   type="password"
                   id="password"
@@ -128,7 +152,7 @@ const Login = () => {
                 >
                   Login
                 </button>
-                
+                <Toaster />
               </div>
             </form>
           </div>
@@ -139,3 +163,89 @@ const Login = () => {
 };
 
 export default Login;
+
+
+
+
+// Subarna Code
+// import React, { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+
+
+// const Login = () => {
+//   const [username, setUsername] = useState("");
+//   const [password, setPassword] = useState("");
+
+//   const navigate = useNavigate();
+
+//   const handleLogin = async (e) => {
+//     e.preventDefault();
+
+//     const response = await fetch("http://localhost:5001/login", {
+//       method: "POST",
+//       headers: {
+//         "Content-Type": "application/json",
+//       },
+//       body: JSON.stringify({ username, password }),
+//     });
+
+//     const data = await response.json();
+
+//     if (response.ok) {
+//       alert("Login Success!!");
+//       setUsername("");
+//       setPassword("");
+
+//       localStorage.setItem("token", JSON.stringify(data.token));
+//       console.log(data.token);
+//       navigate("/");
+//     } else {
+//       alert("Login Faild");
+//     }
+//     window.location.reload();
+//   };
+
+//   return (
+//     <div>
+//       <>
+//         <div className="login-container animated fadeInDown bootstrap snippets bootdeys">
+//           <div className="loginbox border">
+//             <div className="loginbox-title">LOGIN</div> <hr />
+//             <div className="loginbox-textbox">
+//               <input
+//                 type="text"
+//                 className="form-control"
+//                 placeholder="username"
+//                 value={username}
+//                 onChange={(e) => setUsername(e.target.value)}
+//               />
+//             </div>
+//             <div className="loginbox-textbox">
+//               <input
+//                 type="text"
+//                 className="form-control"
+//                 placeholder="Password"
+//                 value={password}
+//                 onChange={(e) => setPassword(e.target.value)}
+//               />
+//             </div>
+//             <div className="loginbox-forgot">
+//               <a href="">Forgot Password?</a>
+//             </div>
+//             <div className="loginbox-submit">
+//               <button className="btn btn-info" onClick={handleLogin}>
+//                 Login
+//               </button>
+//             </div>
+//             <div className="loginbox-signup">
+//               <a href="#register.html">Sign Up</a>
+//             </div>
+//           </div>
+//         </div>
+//       </>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
