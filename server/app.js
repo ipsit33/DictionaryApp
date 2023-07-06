@@ -18,8 +18,8 @@ const connectDB = async () => {
 }
 // const User = require('./model/UserSchema.js');'
 
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 app.use(cookieParser());
 app.use(require('./router/auth'));
 
