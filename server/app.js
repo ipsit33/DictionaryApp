@@ -18,7 +18,12 @@ const connectDB = async () => {
 }
 // const User = require('./model/UserSchema.js');'
 
-app.use(cors());
+const corsOptions = {
+  origin: 'http://localhost:3000', // Replace with the actual origin of your React app
+  credentials: true, // Allow credentials
+};
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use(require('./router/auth'));
