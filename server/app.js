@@ -18,8 +18,13 @@ const connectDB = async () => {
   }
 }
 // const User = require('./model/UserSchema.js');'
-
-
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Replace with your frontend domain
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  res.setHeader('Access-Control-Allow-Credentials', 'true'); // Set to 'true' to allow sending credentials (e.g., cookies)
+  next();
+});
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
