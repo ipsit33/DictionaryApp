@@ -20,7 +20,7 @@ const connectDB = async () => {
 // const User = require('./model/UserSchema.js');'
 
 
-app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 app.use(cookieParser());
