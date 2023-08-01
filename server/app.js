@@ -18,13 +18,40 @@ const connectDB = async () => {
   }
 }
 // const User = require('./model/UserSchema.js');'
+// Enable CORS for your frontend domain
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'http://localhost:3000'); // Replace with your frontend domain
   res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
   res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  res.setHeader('Access-Control-Allow-Credentials', 'true'); // Set to 'true' to allow sending credentials (e.g., cookies)
+  res.setHeader('Access-Control-Allow-Credentials', 'true');
   next();
 });
+
+// Proxy endpoint to forward requests to the Cyclic backend
+app.use('/api', (req, res) => {
+  const targetUrl = 'https://vast-pink-drill-coat.cyclic.app'; // Replace with your Cyclic backend URL
+  const targetPath = req.url;
+  const targetHeaders = {
+    ...req.headers,
+    host: new URL(targetUrl).host,
+    origin: undefined,
+  };
+
+  axios({
+    method: req.method,
+    url: targetUrl + targetPath,
+    data: req.body,
+    headers: targetHeaders,
+    withCredentials: true,
+  })
+    .then((response) => {
+      res.status(response.status).json(response.data);
+    })
+    .catch((error) => {
+      res.status(error.response?.status || 500).json(error.response?.data || { error: 'Unknown error' });
+    });
+});
+
 
 app.use(cors());
 app.use(express.static(path.join(__dirname, 'build')));
