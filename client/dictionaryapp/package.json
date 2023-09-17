@@ -2,7 +2,7 @@
   "name": "dictionaryapp",
   "version": "0.1.0",
   "private": true,
-  "proxy": "https://vast-pink-drill-coat.cyclic.app",
+  "proxy": "https://helpful-moth-zipper.cyclic.cloud",
   "dependencies": {
     "@chakra-ui/react": "^2.7.1",
     "@emotion/react": "^11.11.1",
