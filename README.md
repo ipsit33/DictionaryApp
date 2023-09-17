@@ -12,7 +12,7 @@ Team Members: <ol>
               </ol>
 
 <h1>Topic: -Dictionary App</h1>
-Description: -contain meanings, examples, synonyms, and antonyms of the searched word and related words. Add the bookmark the word functionality. 
+Description: A website where you can search the meaning of any word and contain meanings, examples, synonyms, and antonyms of the searched word and related words. Also you can add bookmark to any word of your choice. 
 
 Pages
 
